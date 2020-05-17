@@ -22,7 +22,7 @@ export default {
         }),
         );
     },
-
+ 
     getOne: (resource, params) =>
         httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
             data: json,

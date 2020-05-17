@@ -7,9 +7,11 @@ import UserIcon from '@material-ui/icons/Group';
 import Dashboard from '../dashboard';
 import loginPage from '../login';
 import dataProvider from '../routes';
+import NotFound from '../not-found';
+import Menu from '../menu';
 
 const App = () => (
-    <Admin dashboard={Dashboard} authProvider={loginPage} dataProvider={dataProvider}>
+    <Admin menu={Menu} catchAll={NotFound} dashboard={Dashboard} authProvider={loginPage} dataProvider={dataProvider}>
         <Resource name="users" list={UserList} icon={UserIcon} />
         <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon}/>
     </Admin>

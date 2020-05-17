@@ -13,6 +13,7 @@ const PostTitle = ({ record }) => {
 
 export const PostList = (props) => {const isSmall = useMediaQuery(theme => theme.breakpoints.down('sm'));
 return (
+    
 <List filters={<PostFilter />} {...props}>
     {isSmall ? (
             <SimpleList
