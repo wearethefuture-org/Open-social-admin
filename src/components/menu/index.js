@@ -4,6 +4,7 @@ import { useMediaQuery } from '@material-ui/core';
 import { MenuItemLink, getResources } from 'react-admin';
 import { withRouter } from 'react-router-dom';
 import LabelIcon from '@material-ui/icons/Assessment';
+//import ExitIcon from '@material-ui/icons/PowerSettingsNew';
 
 const Menu = ({ onMenuClick, logout }) => {
     const isXSmall = useMediaQuery(theme => theme.breakpoints.down('xs'));
@@ -28,6 +29,13 @@ const Menu = ({ onMenuClick, logout }) => {
                 onClick={onMenuClick}
                 sidebarIsOpen={open}
             />
+              {/* <MenuItemLink
+                to="/logout"
+                primaryText="Logout"
+                leftIcon={<ExitIcon />}
+                onClick={onMenuClick}
+                sidebarIsOpen={open}
+        /> */}
             {isXSmall && logout}
         </div>
     );

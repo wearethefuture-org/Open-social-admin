@@ -5,13 +5,15 @@ import {PostList, PostEdit, PostCreate } from '../posList';
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
 import Dashboard from '../dashboard';
-import loginPage from '../login';
+import loginPage from '../../auth';
 import dataProvider from '../routes';
+import MyLogoutButton from '../auth/logout';
 import NotFound from '../not-found';
 import Menu from '../menu';
+import MyLoginPage from '../auth/loginComp';
 
 const App = () => (
-    <Admin menu={Menu} catchAll={NotFound} dashboard={Dashboard} authProvider={loginPage} dataProvider={dataProvider}>
+    <Admin menu={Menu} loginPage={MyLoginPage}  logoutButton={MyLogoutButton} catchAll={NotFound} dashboard={Dashboard} authProvider={loginPage} dataProvider={dataProvider}>
         <Resource name="users" list={UserList} icon={UserIcon} />
         <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon}/>
     </Admin>
