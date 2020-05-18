@@ -10,10 +10,10 @@ import dataProvider from '../routes';
 import MyLogoutButton from '../auth/logout';
 import NotFound from '../not-found';
 import Menu from '../menu';
-import MyLoginPage from '../auth/loginComp';
+import LoginPage from '../auth/login';
 
 const App = () => (
-    <Admin menu={Menu} loginPage={MyLoginPage}  logoutButton={MyLogoutButton} catchAll={NotFound} dashboard={Dashboard} authProvider={loginPage} dataProvider={dataProvider}>
+    <Admin menu={Menu} loginPage={LoginPage}  logoutButton={MyLogoutButton} catchAll={NotFound} dashboard={Dashboard} authProvider={loginPage} dataProvider={dataProvider}>
         <Resource name="users" list={UserList} icon={UserIcon} />
         <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon}/>
     </Admin>
