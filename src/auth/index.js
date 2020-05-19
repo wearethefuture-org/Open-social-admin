@@ -11,17 +11,20 @@ export default {
         });
         return fetch(request)
             .then(response => {
-                if (response.status < 200 || response.status >= 300) {
+                if (response.status !==200 ) {
                     throw new Error(response.statusText);
                 }
                 return response.json();
             })
             .then(({ token }) => {
                 const decodedToken = decodeJwt(token);
+                const role = decodedToken.user.role;
+                if(role!=='superadmin'){
+                    throw new Error('Invalid user role');
+                }
                 localStorage.setItem('token', token);
                 localStorage.setItem('permissions', decodedToken.user.role);
-                console.log(decodedToken.user.role);
-            });
+            })
     },
     // called when the user clicks on the logout button
     logout: () => {
