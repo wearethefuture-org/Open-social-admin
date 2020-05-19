@@ -40,7 +40,7 @@ const MyLoginPage = () => {
     const submit = (e) => {
         e.preventDefault();
         login({ email, password })
-            .catch(() => notify('Invalid email or password'));
+            .catch(() => notify('Invalid creds or you are not admin'));
     };
     const classes = useStyles();
 

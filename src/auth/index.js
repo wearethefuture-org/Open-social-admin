@@ -19,7 +19,7 @@ export default {
             .then(({ token }) => {
                 const decodedToken = decodeJwt(token);
                 const role = decodedToken.user.role;
-                if(role!=='superadmin'){
+                if(role==='user'){
                     throw new Error('Invalid user role');
                 }
                 localStorage.setItem('token', token);
