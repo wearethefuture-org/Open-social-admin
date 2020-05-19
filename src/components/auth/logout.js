@@ -7,10 +7,10 @@ import ExitIcon from '@material-ui/icons/PowerSettingsNew';
 const MyLogoutButton = forwardRef((props, ref) => {
     const logout = useLogout();
     const open = useSelector(state => state.admin.ui.sidebarOpen);
-    const handleClick = () => logout();
+    const handleClick = () => logout('/login');
     return (
         <MenuItemLink
-                to="/logout"
+                to="/login"
                 primaryText="Logout"
                 leftIcon={<ExitIcon />}
                 onClick={handleClick}

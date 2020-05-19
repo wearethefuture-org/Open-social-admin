@@ -1,8 +1,17 @@
 import { fetchUtils } from 'react-admin';
 import { stringify } from 'query-string';
 
-const apiUrl = 'https://jsonplaceholder.typicode.com';
-const httpClient = fetchUtils.fetchJson;
+import {apiUrl} from '../../constants';
+
+
+const httpClient = (url, options = {}) => {
+    options.user = {
+        authenticated: true,
+        token: `Bearer ${localStorage.getItem('token')}`,
+    };
+    return fetchUtils.fetchJson(url, options);
+};
+
 
 export default {
     getList: (resource, params) => {
@@ -14,8 +23,9 @@ export default {
             filter: JSON.stringify(params.filter),
         };
         const url = `${apiUrl}/${resource}?${stringify(query)}`;
-
-        return httpClient(url).then(({ headers, json }) => ({
+        
+        return httpClient(url,httpClient).then(({ headers, json }) => 
+        ({
             data: json,
             total: parseInt(headers.get('content-range'), 10),
             //total: parseInt(headers.get('content-range').split('/').pop(), 10),
